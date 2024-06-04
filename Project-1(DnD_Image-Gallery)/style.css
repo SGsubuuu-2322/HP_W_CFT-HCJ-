@@ -20,8 +20,8 @@ body {
 
 .dnd-gallery {
   transform: translate(-50px, -50px);
-  width: 50%;
-  padding: 20px;
+  /* width: 50%; */
+  padding: 12px;
   /* border: 2px solid black; */
   border-radius: 20px;
   box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5);
@@ -48,7 +48,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 25px;
+  padding: 10px 10px;
 }
 
 #drop-area:hover {
@@ -56,10 +56,13 @@ body {
 }
 
 #img-view {
-  width: 256px;
-  height: 190px;
+  width: 200px;
+  height: 195px;
   padding: 20px;
   border: 2px dashed black;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 #img-view img {
