@@ -7,6 +7,23 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="app-container" id="app">
+      <div class="dnd-gallery">
+        <label for="input-file" id="drop-area">
+          <input type="file" accept="image/*" id="input-file" hidden />
+          <div id="img-view">
+            <img src="./assets/upload-icon.png" alt="upload&img-view" />
+          </div>
+          <p>
+            Drag & Drop or click <br />
+            to upload image...
+          </p>
+        </label>
+        <div id="img-list">
+          <h1>Image Lists</h1>
+        </div>
+      </div>
+    </div>
     <script src="./script.js"></script>
   </body>
 </html>
