@@ -12,10 +12,11 @@ app.style.alignItems = "center";
 app.style.flexDirection = "column";
 app.innerHTML = "<h1>List_Items</h1>";
 const ul = document.createElement("ul");
-const listItem = 5;
 app.append(ul);
-for (let i = 0; i <= listItem; i++) {
+const listItem = 5;
+for (let i = 0; i < listItem; i++) {
   const li = document.createElement("li");
-  li.innerText = `Item - ${++i}`;
+  li.innerText = `Item - ${i + 1}`;
   ul.append(li);
+  //   console.log(`Item - ${i + 1}`);
 }
