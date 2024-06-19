@@ -31,10 +31,15 @@ function App() {
     // console.log(listItems);
   };
 
+  const handleDeletion = (i) => {
+    // setlistItems(listItems.filter((item) => item !== i));
+    setlistItems(listItems.splice(i, 1));
+  };
+
   return (
     <>
       <div className="h-[100vh] w-full bg-red-400 flex items-center justify-center">
-        <div className="w-1/3 h-2/3 bg-white p-5 shadow-xl shadow-red-600 flex flex-col gap-2 overflow-hidden overflow-y-auto">
+        <div className="w-1/3 h-2/3 bg-white p-5 shadow-xl shadow-red-600 flex flex-col gap-2 overflow-hidden">
           <form className="flex justify-between" onSubmit={submitHandler}>
             <input
               type="text"
@@ -51,13 +56,14 @@ function App() {
               Submit
             </button>
           </form>
-          <div className="w-full h-full text-center flex flex-col gap-1  bg-slate-200">
+          <div className="w-full h-full text-center flex flex-col gap-1  bg-slate-200 overflow-hidden">
             <h1 className="font-bold text-xl font-serif">List-Items</h1>
-            <ul className="flex flex-col gap-2">
+            <ul className="flex flex-col gap-2 h-full overflow-hidden overflow-y-auto p-2">
               {listItems?.map((item, i) => (
                 <li
                   key={i}
                   className="w-full py-3 bg-white shadow-xl shadow-black"
+                  onClick={() => handleDeletion(i)}
                 >
                   {item}
                 </li>
