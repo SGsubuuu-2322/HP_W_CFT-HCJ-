@@ -25,13 +25,16 @@ function App() {
   const submitHandler = (e) => {
     e.preventDefault();
     setlistItems([...listItems, formText.text]);
+    setformText({
+      text: "",
+    });
     // console.log(listItems);
   };
 
   return (
     <>
       <div className="h-[100vh] w-full bg-red-400 flex items-center justify-center">
-        <div className="w-1/3 h-2/3 bg-white p-5 shadow-xl shadow-red-600 flex flex-col gap-2">
+        <div className="w-1/3 h-2/3 bg-white p-5 shadow-xl shadow-red-600 flex flex-col gap-2 overflow-hidden overflow-y-auto">
           <form className="flex justify-between" onSubmit={submitHandler}>
             <input
               type="text"
