@@ -10,7 +10,7 @@ function App() {
   );
 
   useEffect(() => {
-    console.log(listItems);
+    // console.log(listItems);
     localStorage.setItem("listItems", JSON.stringify(listItems));
   }, [listItems]);
 
@@ -31,9 +31,11 @@ function App() {
     // console.log(listItems);
   };
 
+  // setlistItems(listItems.filter((item) => item !== i));
   const handleDeletion = (i) => {
-    // setlistItems(listItems.filter((item) => item !== i));
-    setlistItems(listItems.splice(i, 1));
+    const newListItems = [...listItems];
+    newListItems.splice(i, 1);
+    setlistItems(newListItems);
   };
 
   return (
@@ -62,7 +64,7 @@ function App() {
               {listItems?.map((item, i) => (
                 <li
                   key={i}
-                  className="w-full py-3 bg-white shadow-xl shadow-black"
+                  className="w-full py-3 bg-white shadow-xl shadow-black cursor-pointer"
                   onClick={() => handleDeletion(i)}
                 >
                   {item}
