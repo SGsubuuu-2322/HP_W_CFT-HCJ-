@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import { MdDelete } from "react-icons/md";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [formText, setformText] = useState({
@@ -28,6 +31,7 @@ function App() {
     setformText({
       text: "",
     });
+    notify("💧 Item Created Successfully!!!");
     // console.log(listItems);
   };
 
@@ -37,6 +41,8 @@ function App() {
     newListItems.splice(i, 1);
     setlistItems(newListItems);
   };
+
+  const notify = (text) => toast(text);
 
   return (
     <>
@@ -64,15 +70,22 @@ function App() {
               {listItems?.map((item, i) => (
                 <li
                   key={i}
-                  className="w-full py-3 bg-white shadow-xl shadow-black cursor-pointer"
-                  onClick={() => handleDeletion(i)}
+                  className="w-full py-3 bg-white shadow-xl shadow-black cursor-pointer flex justify-between px-5"
                 >
                   {item}
+                  <MdDelete
+                    onClick={() => {
+                      handleDeletion(i);
+                      notify("🔥 Item Deleted Successfully!!!");
+                    }}
+                    className="text-red-500 active:scale-110 duration-200 text-xl"
+                  />
                 </li>
               ))}
             </ul>
           </div>
         </div>
+        <ToastContainer />
       </div>
     </>
   );
