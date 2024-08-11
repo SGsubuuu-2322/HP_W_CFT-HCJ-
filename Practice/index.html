@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice</title>
+  </head>
+  <body>
+    <h1 id="title"></h1>
+    <script>
+      // let name = "SGsubuuu";
+      // document.querySelector("#title").innerText = name;
+      //   document.body.innerHTML = `<h1>${name}</h1>`
+
+      // let arr = [2, 3, 5, 7, 8, 9];
+      //   let newArr = [];
+      //   for (let i = 0; i < arr.length; i++) {
+      //     newArr.push(arr[i] * 4);
+      //   }
+      //   console.log(newArr);
+      //   let newArr = arr.map((item) => item * 2);
+      //   console.log(newArr);
+
+      //   const Promise = new Promise(() => {setTimeout(()=> {console.log("10")}, 2000)})
+      //   for (var i = 1; i <= 3; i++) {
+      //     function call(i) {
+      //       setTimeout(() => console.log(i), 1000);
+      //     }
+      //     call(i);
+      //   }
+      // {
+      //   let a = 1;
+      //   let b = 2;
+      //   console.log(a, b);
+      // }
+      // console.log(a, b);
+
+      // let num = 10;
+
+      // function Outer() {
+      //   console.log(this);
+      //   let name = "SGsubu";
+      //   var nom = 20;
+      //   console.log(name, nom);
+      //   // function Inner() {
+      //   //   console.log(name);
+      //   // }
+      //   // Inner();
+      // }
+      // Outer();
+
+      // function x() {
+      //   for (let i = 1; i <= 5; i++) {
+      //     setTimeout(function () {
+      //       console.log(i);
+      //     }, i * 1000);
+      //   }
+      //   console.log("Hello World");
+      // }
+      // x();
+
+      // function x() {
+      //   for (var i = 1; i < 6; i++) {
+      //     function y(n) {
+      //       setTimeout(function () {
+      //         console.log(n);
+      //       }, 1000);
+      //     }
+      //     y(i);
+      //   }
+      //   console.log("Hello World");
+      // }
+      // x();
+
+      function x() {
+        let a = 10,
+          b = 20;
+
+        return function () {
+          console.log(a);
+        };
+      }
+
+      x()();
+    </script>
+  </body>
+</html>
