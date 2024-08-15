@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const editTodoItem = (todoItem) => {
-    console.log(todoItem);
+    // console.log(todoItem);
     todoInput.value = todoItem.firstChild.textContent;
     todoInput.focus();
     todoSubmit.innerText = "Edit Item";
