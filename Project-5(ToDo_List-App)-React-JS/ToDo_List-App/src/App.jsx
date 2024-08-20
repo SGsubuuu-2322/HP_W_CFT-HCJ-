@@ -66,7 +66,7 @@ function App() {
       <div className="bg-primary w-full h-screen flex flex-col items-center p-16 gap-5">
         <h1 className="font-bold text-2xl italic text-secondary">TODO-APP</h1>
 
-        <div className="flex flex-col gap-4 p-6 border-dark border-4 rounded-xl">
+        <div className="flex flex-col gap-4 p-6 border-dark border-4 rounded-xl max-h-72 overflow-hidden">
           <form onSubmit={handleSubmit} className="flex gap-2">
             <input
               type="text"
@@ -85,7 +85,7 @@ function App() {
 
           <ul
             onClick={handleClick}
-            className="w-full flex flex-col items-center gap-2"
+            className="w-full flex flex-col items-center gap-2 overflow-y-auto"
           >
             {todoItems.map((item, i) => (
               <li
