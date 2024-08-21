@@ -106,7 +106,9 @@ function App() {
           >
             {todoItems.map((item, i) => (
               <li
-                className={`px-3 py-1 bg-secondary w-full flex justify-between rounded-sm hover:bg-secondarylite hover:text-[white]`}
+                className={`px-3 py-1 ${
+                  item.marked ? "bg-[#abff03]" : "bg-secondary"
+                } w-full flex justify-between rounded-sm hover:bg-secondarylite hover:text-[white]`}
                 key={i}
               >
                 <span className={`${item.marked ? "line-through" : ""}`}>
