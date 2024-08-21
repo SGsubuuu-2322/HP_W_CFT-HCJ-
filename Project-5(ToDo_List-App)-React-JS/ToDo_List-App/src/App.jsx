@@ -28,7 +28,11 @@ function App() {
           seteditTodo(false);
         }
       } else {
-        settodoItems([...todoItems, inputValue]);
+        if (todoItems.indexOf(inputValue) === -1) {
+          settodoItems([...todoItems, inputValue]);
+        } else {
+          alert("TODO-Item already exists. Write a new one...");
+        }
       }
       setinputValue("");
     }
