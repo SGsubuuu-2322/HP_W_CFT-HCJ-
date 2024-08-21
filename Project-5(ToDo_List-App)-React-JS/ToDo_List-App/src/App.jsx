@@ -12,7 +12,7 @@ function App() {
     if (editTodo && inputRef.current) {
       inputRef.current.focus();
     }
-    console.log(todoItems);
+    // console.log(todoItems);
   }, [editTodo, todoItems]);
 
   const handleSubmit = (e) => {
@@ -20,10 +20,10 @@ function App() {
 
     if (inputValue.trim() !== "") {
       if (editTodo) {
-        const index = todoItems.indexOf(editItem);
+        const index = todoItems.findIndex((item) => item.item === editItem);
         if (index !== -1) {
           const newTodoItems = [...todoItems];
-          newTodoItems[index] = inputValue;
+          newTodoItems[index] = { item: inputValue, marked: false };
           settodoItems(newTodoItems);
           seteditTodo(false);
         }
