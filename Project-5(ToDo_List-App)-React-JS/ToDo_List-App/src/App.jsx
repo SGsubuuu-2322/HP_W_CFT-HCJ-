@@ -12,7 +12,7 @@ function App() {
     if (editTodo && inputRef.current) {
       inputRef.current.focus();
     }
-    // console.log(todoItems);
+    console.log(todoItems);
   }, [editTodo, todoItems]);
 
   const handleSubmit = (e) => {
@@ -28,8 +28,8 @@ function App() {
           seteditTodo(false);
         }
       } else {
-        if (todoItems.indexOf(inputValue) === -1) {
-          settodoItems([...todoItems, inputValue]);
+        if (todoItems.find((item) => item.item === inputValue) === undefined) {
+          settodoItems([...todoItems, { item: inputValue, marked: false }]);
         } else {
           alert("TODO-Item already exists. Write a new one...");
         }
@@ -55,12 +55,25 @@ function App() {
     seteditItem(list.firstChild.textContent);
   };
 
+  const handleMarked = (e) => {
+    const itemText = e.target.parentNode.parentNode.firstChild.textContent;
+    const newTodoItems = [...todoItems];
+    const index = newTodoItems.findIndex((item) => item.item === itemText);
+    newTodoItems[index] = {
+      item: itemText,
+      marked: !newTodoItems[index].marked,
+    };
+    settodoItems(newTodoItems);
+  };
+
   const handleClick = (e) => {
     if (e.target.tagName === "BUTTON") {
       if (e.target.textContent === "❌") {
         handleDeletion(e);
       } else if (e.target.textContent === "✏️") {
         handleUpdation(e);
+      } else if (e.target.textContent === "✔️") {
+        handleMarked(e);
       }
     }
   };
@@ -93,13 +106,22 @@ function App() {
           >
             {todoItems.map((item, i) => (
               <li
-                className="px-3 py-1 bg-secondary w-full flex justify-between rounded-sm hover:bg-secondarylite hover:text-[white]"
+                className={`px-3 py-1 bg-secondary w-full flex justify-between rounded-sm hover:bg-secondarylite hover:text-[white]`}
                 key={i}
               >
-                {item}
+                <span className={`${item.marked ? "line-through" : ""}`}>
+                  {item.item}
+                </span>
                 <div className="flex gap-2">
-                  <button className="bg-zinc-300 cursor-pointer">✏️</button>
-                  <button className="bg-zinc-300 cursor-pointer">❌</button>
+                  <button className="bg-zinc-300 cursor-pointer active:scale-110 active:duration-300">
+                    ✏️
+                  </button>
+                  <button className="bg-zinc-300 cursor-pointer active:scale-110 active:duration-300">
+                    ✔️
+                  </button>
+                  <button className="bg-zinc-300 cursor-pointer active:scale-110 active:duration-300">
+                    ❌
+                  </button>
                 </div>
               </li>
             ))}
