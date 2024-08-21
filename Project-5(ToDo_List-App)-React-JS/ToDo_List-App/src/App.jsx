@@ -43,7 +43,7 @@ function App() {
   const handleDeletion = (e) => {
     const list = e.target.parentNode.parentNode;
     const listItem = list.firstChild.textContent;
-    settodoItems(todoItems.filter((item) => item != listItem));
+    settodoItems(todoItems.filter((item) => item.item != listItem));
     // listItem.remove();
   };
 
